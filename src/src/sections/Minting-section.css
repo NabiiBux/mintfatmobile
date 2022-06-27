@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+.spanNFT {
+  color: white;
+  font-size: 15px;
+}
+.float-right {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  display: flex;
+  float: right;
+}
+.mint-heading {
+  font-size: 32px;
+  color: white;
+  font-weight: 600;
+  /* font-weight: 500; */
+  line-height: 1.2;
+}
+.float-div {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.image{
+  width: 100%;
+  border-radius: 20px;
+  
+}
+@media only screen and (min-width:996px){
+ #Buynft .image{
+    min-width: 400px;
+  }
+}
+.mint-mid {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+.btn-size {
+  font-size: 25px;
+}
+.mint-col >h4{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  float: left;
+  color: white;
+  vertical-align: middle;
+}
+.Buynft{
+  padding-top: 170px;
+}
+.btngroup{
+  float: right;
+}
+.increment-btn{
+  color: white;
+  border-radius: 50px;
+  font-size: 30px;
+}
+.increment-btn:hover{
+  color: white;
+  /* border-radius: 50px; */
+  font-size: 30px;
+  
+}
+.spanNFT{
+  font-size: 25px;
+}
+.border-btm{
+  padding-top: 30px;
+  border-bottom: 2px solid white ;
+}
+
+.mint-btn{
+  max-width: 400px;
+  margin: auto;
+  padding: 15px 30px;
+  background: #91c2ed;
+  border-radius: 15px;
+  border: 1px solid #000;
+  border-bottom: 5px solid black;
+  border-top: 1px solid black;
+  cursor: pointer;
+}
+.mint-btn:hover{
+  
+ 
+  background-color: #91c2ed;
+}
+.btn{
+  border: none !important;
+}
+
+/* From cssbuttons.io */
+.c-button {
+  color: #000;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.9em 1.6em;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  z-index: 1;
+ }
+ 
+ .c-button--gooey {
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 50px;
+  position: relative;
+  transition: all 700ms ease;
+ }
+ 
+ .c-button--gooey .c-button__blobs {
+  height: 100%;
+  filter: url(#goo);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: -3px;
+  right: -1px;
+  z-index: -1;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey .c-button__blobs div {
+  background-color: #7289da;
+  width: 34%;
+  height: 100%;
+  position: absolute;
+  transform: scale(1.4) translateY(125%) translateZ(0);
+  transition: all 700ms ease;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey .c-button__blobs div:nth-child(1) {
+  left: -5%;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey .c-button__blobs div:nth-child(2) {
+  left: 30%;
+  transition-delay: 60ms;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey .c-button__blobs div:nth-child(3) {
+  left: 66%;
+  transition-delay: 25ms;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey:hover {
+  color: #fff;
+  border-radius: 50px;
+
+ }
+ 
+ .c-button--gooey:hover .c-button__blobs div {
+  transform: scale(1.4) translateY(0) translateZ(0);
+  border-radius: 50px !important;
+ }
+
+.mint-btn{
+  width: auto  !important;
+}
