@@ -54,8 +54,8 @@ function App() {
           {/* <Collection/> */}
         </Route>
         <Route exact path="/mint">
-           <MintHeader/>
-           <MintMobileHeader/>
+           {/* <MintHeader/>
+           <MintMobileHeader/> */}
            
            <Mint/> 
         </Route>
