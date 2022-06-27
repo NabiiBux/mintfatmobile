@@ -7,7 +7,7 @@ function MainHeader() {
         <header className="header_main desktop_header">
             <div className="container">
                 <div className="header_inner">
-                    <div className="header_flex" style={{ marginTop: 20 }}>
+                    <div className="header_flex" style={{ marginTop: 500 }}>
                         <div className="header_menu header_menu1">
                             <ul>
                                 <li><a href="#home">HOME</a></li>
