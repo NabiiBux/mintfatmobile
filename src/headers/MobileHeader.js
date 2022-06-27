@@ -37,7 +37,7 @@ function MobileHeader() {
                 <h6><a href="#faq"><em>FAQ’S</em></a></h6>
                 </div>
             </Drawer>
-            <div className="container">
+            <div className="container" style={{margin:120}} >
                 <div className="mobile_header_flex">
                     <div className="mobile_header_inner">
                         <div className="mobile_header_logo">
