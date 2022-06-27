@@ -1,18 +1,17 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { connectWallet, getCurrentWalletConnected } from "./interact.js";
-// import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
+import { connectWallet, getCurrentWalletConnected } from "./interact";
 import Modal from "react-bootstrap/Modal";
- import gif from "./gif.gif";
+import  './Minting-section.css';
 import Form from "react-bootstrap/Form";
 
 const alchemyKey = process.env.REACT_APP_ALCHEMY_KEY;
 const contractABI = require("./abi.json");
-const contractAddress = "0xF9fC419822320D75a6BABae48721846516232cf7";
+const contractAddress = "0x22e30ce48e1e2dff1d2711999bc35bb69ac8eb13";
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3");
 const web3 = createAlchemyWeb3(alchemyKey);
 const contract = new web3.eth.Contract(contractABI, contractAddress);
-
 
 async function show_error_alert(error){
   let temp_error = error.message.toString();
@@ -41,7 +40,7 @@ async function show_error_alert(error){
 }
 
 
-const mintNFT = async (amount, price) => {
+const mint = async (amount, price) => {
   const { address } = await getCurrentWalletConnected();
   if (address === "") {
     return {
@@ -81,7 +80,7 @@ const mintNFT = async (amount, price) => {
     };
   }
 };
-const mintFreeNFT = async () => {
+const mintPresale = async () => {
   const { address } = await getCurrentWalletConnected();
   if (address === "") {
     return {
@@ -91,14 +90,15 @@ const mintFreeNFT = async () => {
   } else {
     try{
 
-    const estemated_Gas = await contract.methods.free_mint().estimateGas({
+    
+    const estemated_Gas = await contract.methods.mint_Presale().estimateGas({
       from : address, 
       maxPriorityFeePerGas: null,
       maxFeePerGas: null
     });
     console.log(estemated_Gas)
     console.log("Gas: "+estemated_Gas)
-    const result = await contract.methods.free_mint().send({
+    const result = await contract.methods.mint_Presale().send({
       from : address,
       gas: estemated_Gas,
       maxPriorityFeePerGas: null,
@@ -129,7 +129,7 @@ const Mint = () => {
   const [quantity, setQuantity] = useState(0);
 
   const handleClose = () => setShow(false);
-  const publicsale_price = 30000000000000000;
+  const PRICE = 150000000000000000;
 
   const handleShow = async () => {
     setShow(true);
@@ -147,7 +147,7 @@ const Mint = () => {
   };
 
   const onMintPressed = async () => {
-    const { status } = await mintNFT(tokenNumber, publicsale_price);
+    const { status } = await mint(tokenNumber, PRICE);
     setStatus(status);
   };
 
@@ -167,48 +167,18 @@ const Mint = () => {
     fetchData();
   }, []);
 
-  // function addWalletListener() {
-  //   if (window.ethereum) {
-  //     window.ethereum.on("accountsChanged", (accounts) => {
-  //       if (accounts.length > 0) {
-  //         setWallet(accounts[0]);
-  //       } else {
-  //         setWallet("");
-  //       }
-  //     });
-  //   } else {
-  //   }
-  // }
   function addWalletListener() {
     if (window.ethereum) {
       window.ethereum.on("accountsChanged", (accounts) => {
         if (accounts.length > 0) {
           setWallet(accounts[0]);
-          setStatus("👆🏽 You can mint new pack now.");
         } else {
           setWallet("");
-          setStatus("🦊 Connect to Metamask using the top right button.");
-        }
-      });
-      window.ethereum.on("chainChanged", (chain) => {
-        connectWalletPressed()
-        if (chain !== 4) {
         }
       });
     } else {
-      setStatus(
-        <p>
-          {" "}
-          🦊{" "}
-          {/* <a target="_blank" href={`https://metamask.io/download.html`}> */}
-            You must install Metamask, a virtual Ethereum wallet, in your
-            browser.(https://metamask.io/download.html)
-          {/* </a> */}
-        </p>
-      );
     }
   }
-
 
   const connectWalletPressed = async () => {
     const walletResponse = await connectWallet();
@@ -229,25 +199,109 @@ const Mint = () => {
 
   return (
     <>
-      <div id="Buynft" className="Buynft">
 
-  <div className="container -fluid p-5 ">
-  <div className="row mx-auto text-center"> </div>
+<div id="Buynft" className="Buynft">
+
+<div className="container -fluid p-5 ">
+  <div className="row mx-auto text-center">
     <div className="col-md-4 mx-auto my-auto text-center">
       {/* <img className="image" src={gif} alt="Pic" /> */}
     </div>
-    <div className="col-md-2"> 
+    <div className="col-md-2">
 
     </div>
-    <div className="mint-container" style={{ marginTop:0 }}>
-      <div className="mint-container">
+    <div className="col-md-6"
+
+    >
+      <div className="col-md-12 btngroup ">
+        <h1 className="mintheading text-center"> </h1>
+        <div className="row borderbtm">
+          <div className="col-md-12 mintcol">
+            <h4 style={{ color: "white" }}> </h4>
+            <h4 style={{ color: "white" }} className="float-center ">{ }  </h4>
+          </div>
+        </div>
+        <div className="row borderbtm">
+          <div className="col-md-12 mint-col">
+            <h4 style={{ color: "white" }} className="pt-2">   </h4>
+            <div
+              className="d-flex rounded btngroup "
+              // role="group"
+              // aria-label="First group"
+            >
+              <button
+                className="btn increment-btn m-0 p-0"
+                // onClick={() => {
+                //   if (window > 1) {
+                //     mint(window - 1);
+                //   }
+                // }}
+              >
+                
+              </button>
+              <button type="button" className="btn text-white btn-size">
+                { }
+              </button>
+              <button
+                className="btn increment-btn m-0 p-0"
+                // onClick={() => {
+                //   if (window < 2) {
+                //     (window + 1);
+                //   }
+                // }}
+              >
+                
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="row borderbtm">
+          <div className="col-md-12 mint-col">
+            <h4 style={{ color: "white" }}> </h4>
+            <h4 style={{ color: "white" }} className="float-center"> </h4>
+          </div>
+        </div>
+        <div className="row borderbtm">
+          <div className="col-md-12 mint-col">
+            <h4 style={{ color: "white" }}> </h4>
+            <h4 style={{ color: "white" }} className="float-center">{ }</h4>
+          </div>
+        </div>
+        <p className="text-center py-5 what_inner_text ">
+          {/* <button href="#Buynft"
+            className="btn mint-btn"
+            onClick={async () => {
+              await connectWallet();
+              await mint();
+            }}
+          // disabled
+          >
+            Mint Now
+          </button> */}
+          {/* <button class=" float-center"
+          // onClick={async () => {
+          //   await connectWallet();
+          //   await mint();
+          // }}
+          >
+           
+          </button> */}
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div className="mint-container">
         <div>
           <div className="mint-panel">
             <div className="mint-price">
               Up To 5 Per Wallet
               <br />
               {/* Only 250 Each */}
-              One Free Per Wallet. Up To 5 Per Wallet at 0.03ETH.
+             Up To 5 Per Wallet at 0.15ETH.
               <br />
               Plus Gas
             </div>
@@ -293,14 +347,14 @@ const Mint = () => {
             <div className="df jcc mt10 mb10">
               <Button
                 className="mint-btn"
-                onClick={mintFreeNFT}
+                onClick={mintPresale}
                 style={{
                   borderRadius: "10px",
                   fontSize: "24px",
                   width: "100%",
                 }}
               >
-                MINT ONE FREE
+                MINT  PRESALE
               </Button>
             </div>
             <div
@@ -309,12 +363,7 @@ const Mint = () => {
                 justifyContent: "center",
               }}
             >
-              {/* <a href="https://twitter.com/Fat12Nft" target="_blank">
-                <div className="text-base flex justify-center items-center rounded-full cursor-pointer w-10 h-10 bg-white text-black social-icon">
-                  <AiOutlineTwitter />
-                </div>
-              </a> */}
-              {/* <a href="https://opensea.io/collection/fat12" target="_blank">
+              {/* <a href="https://twitter.com/aperians" target="_blank">
                 <div className="text-base flex justify-center items-center rounded-full cursor-pointer w-10 h-10 bg-white text-black social-icon">
                   <AiOutlineTwitter />
                 </div>
@@ -323,11 +372,11 @@ const Mint = () => {
           </div>
           <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-              <Modal.Title>MINT FAT12</Modal.Title>
+              <Modal.Title>MINT FATE NFT</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <img
-                src="./gif.gif"
+                src="./images/frame.jpeg"
                 alt=""
                 style={{ maxWidth: "220px" }}
               />
@@ -365,10 +414,8 @@ const Mint = () => {
               <Button onClick={handleClose}>Close</Button>
             </Modal.Footer>
           </Modal>
+       
         </div>
-      </div>
-      </div>
-      </div>
       </div>
     </>
   );
