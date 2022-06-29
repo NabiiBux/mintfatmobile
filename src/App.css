@@ -33,20 +33,26 @@ body {
 }
 .mint {
   background-color: rgba(5, 19, 25, 0.7);  
-  padding: 24px 24px 0px 24px;
   border-radius: 15px;
   margin: auto;
+  width: 984px;
+  height: 400px;
 }
 .mintSection {
   display: flex;
-  flex-direction: column;
+  justify-content: left;
   align-items: center;
+  text-align: center;
   color: white;
-  font-family: "Salsa", Sans-serif;
+  padding: 12px;
+  font-family: "Berlin Sans FB DEMI";
+  text-shadow: 2px 2px 0px black,
+  4px 4px 0px black,
+  6px 6px 0px black;
 }
 
 .mintBTN {
-  width: 40%;
+  width: 80%;
 }
 
 .mainBG {
@@ -54,17 +60,21 @@ body {
   height: 100vh;
 }
 
+.pTotal {
+  margin-top: 4px;
+}
+
 .mintImage {
-  width: 260px;
-  margin-bottom: 8px;
+  width: 100%;
   border-radius: 12px;
+  display: inline-block;
 }
 
 .mintCount {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  width: 40%;
+  width: 100%;
   margin: 8px;
 }
 
@@ -78,5 +88,43 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.presale-h {
+  font-family: 'Arial Black';
+}
+
+.mint-h {
+  font-weight: bold;
+  font-family: 'American Stencil', sans-serif;
+}
+
+.logo-image{
+  width: 30%;
+}
+
+.App-header-links {
+  margin-left: -12%;
+}
+
+
+@media only screen and (max-width: 1023px) {
+  .mintSection {  
+    margin: 12px;
+    width: auto;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 766px) {
+  .mintImage {
+    width: 40%;
+  }
+  .App-header a {
+    margin: 0px 6px;
+  }
+  .App-header {
+    justify-content: space-between;
   }
 }

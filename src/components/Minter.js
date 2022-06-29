@@ -31,7 +31,7 @@ const Minter = (props) => {
       });
       window.ethereum.on("chainChanged", (chain) => {
         connectWalletPressed()
-        if (chain !== 4) {
+        if (chain !== 1) {
         }
       });
     } else {
@@ -39,10 +39,6 @@ const Minter = (props) => {
         <p>
           {" "}
           🦊{" "}
-          {/* <a target="_blank" href={`https://metamask.io/download.html`}> */}
-            You must install Metamask, a virtual Ethereum wallet, in your
-            browser.(https://metamask.io/download.html)
-          {/* </a> */}
         </p>
       );
     }
